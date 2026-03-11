@@ -1,0 +1,36 @@
+<html>
+    <body>
+        <h1>Guess the number</h1>
+        <label for="userchoice">choose a number 1-9</label>
+        <select id="userchoice">
+        <script>
+            for(let i=1;i<=9;i++){
+            document.write(`<option>${i}</option>`);
+            }
+        </script>
+    </select>
+    <br><br>
+    <button onclick="playgame()">check</button>
+    <div id="result"></div>
+    <script>
+        function playgame(){
+            const username=parseInt(document.getElementById("userchoice").value);
+            const computermove=Math.floor(Math.random()*10)+1;
+            let resultText=`Computer Choose:   ${ computermove }`;
+            if (username===computermove){
+                resultText+=" 😀 You Win ";
+            }
+            else{
+                resultText+=" 😌 You Lose ";
+            }
+        document.getElementById("result").innerText=resultText;
+        }
+    </script>
+    </body>
+    <style>
+        body{
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+</html>
